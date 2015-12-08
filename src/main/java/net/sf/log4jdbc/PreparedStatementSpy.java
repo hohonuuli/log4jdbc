@@ -1149,4 +1149,28 @@ public class PreparedStatementSpy extends StatementSpy implements PreparedStatem
     }
   }
 
+    public void closeOnCompletion() throws SQLException {
+        String methodCall = "closeOnCompletion()";
+        try {
+            realPreparedStatement.closeOnCompletion();
+        }
+        catch (SQLException e) {
+            reportException(methodCall, e);
+            throw e;
+        }
+    }
+
+    public boolean isCloseOnCompletion() throws SQLException {
+        String methodCall = "isCloseOnCompletion()";
+        try {
+            return reportReturn(methodCall, realPreparedStatement.isCloseOnCompletion());
+        }
+        catch (SQLException e) {
+            reportException(methodCall, e);
+            throw e;
+        }
+    }
+  
+  
+
 }
