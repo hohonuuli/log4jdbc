@@ -34,7 +34,7 @@ public class SpyLogFactory
   /**
    * The logging system of choice.
    */
-  private static final SpyLogDelegator logger = new Slf4jSpyLogDelegator();
+  private static final SpyLogDelegator LOGGER = new Slf4jSpyLogDelegator();
   //new Log4jSpyLogDelegator();
 
   /**
@@ -44,7 +44,7 @@ public class SpyLogFactory
    */
   public static SpyLogDelegator getSpyLogDelegator()
   {
-    return logger;
+    return LOGGER;
   }
 }
 

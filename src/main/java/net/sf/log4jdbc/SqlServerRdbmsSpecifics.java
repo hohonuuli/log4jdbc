@@ -20,10 +20,9 @@ package net.sf.log4jdbc;
  *
  * @author Arthur Blake
  */
-class SqlServerRdbmsSpecifics extends RdbmsSpecifics
-{
-  SqlServerRdbmsSpecifics()
-  {
-    super();
-  }
+class SqlServerRdbmsSpecifics extends RdbmsSpecifics {
+
+    SqlServerRdbmsSpecifics() {
+        super();
+    }
 }

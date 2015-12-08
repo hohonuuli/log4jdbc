@@ -22,30 +22,23 @@ import java.text.SimpleDateFormat;
  *
  * @author Arthur Blake
  */
-class MySqlRdbmsSpecifics extends RdbmsSpecifics
-{
-  MySqlRdbmsSpecifics()
-  {
-    super();
-  }
+class MySqlRdbmsSpecifics extends RdbmsSpecifics {
 
-  String formatParameterObject(Object object)
-  {
-    if (object instanceof java.sql.Time)
-    {
-      return "'" + new SimpleDateFormat("HH:mm:ss").format(object) + "'";
+    MySqlRdbmsSpecifics() {
+        super();
     }
-    else if (object instanceof java.sql.Date)
-    {
-      return "'" + new SimpleDateFormat("yyyy-MM-dd").format(object) + "'";
+
+    @Override
+    String formatParameterObject(Object object) {
+        if (object instanceof java.sql.Time) {
+            return "'" + new SimpleDateFormat("HH:mm:ss").format(object) + "'";
+        } else if (object instanceof java.sql.Date) {
+            return "'" + new SimpleDateFormat("yyyy-MM-dd").format(object) + "'";
+        } else if (object instanceof java.util.Date) // (includes java.sql.Timestamp)
+        {
+            return "'" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(object) + "'";
+        } else {
+            return super.formatParameterObject(object);
+        }
     }
-    else if (object instanceof java.util.Date)  // (includes java.sql.Timestamp)
-    {
-      return "'" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(object) + "'";
-    }
-    else
-    {
-      return super.formatParameterObject(object);
-    }
-  }
 }

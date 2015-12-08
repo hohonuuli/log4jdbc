@@ -52,7 +52,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
   /**
    * The real underlying CallableStatement that this CallableStatementSpy wraps.
    */
-  private CallableStatement realCallableStatement;
+  private final CallableStatement realCallableStatement;
 
   /**
    * Get the real underlying CallableStatement that this CallableStatementSpy wraps.
@@ -77,6 +77,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     this.realCallableStatement = realCallableStatement;
   }
 
+  @Override
   public String getClassType()
   {
     return "CallableStatement";
@@ -84,6 +85,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
 
   // forwarding methods
 
+  @Override
   public Date getDate(int parameterIndex) throws SQLException
   {
     String methodCall = "getDate(" + parameterIndex + ")";
@@ -98,6 +100,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Date getDate(int parameterIndex, Calendar cal) throws SQLException
   {
     String methodCall = "getDate(" + parameterIndex + ", " + cal + ")";
@@ -112,6 +115,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Ref getRef(String parameterName) throws SQLException
   {
     String methodCall = "getRef(" + parameterName + ")";
@@ -126,6 +130,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Time getTime(String parameterName) throws SQLException
   {
     String methodCall = "getTime(" + parameterName + ")";
@@ -140,6 +145,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setTime(String parameterName, Time x) throws SQLException
   {
     String methodCall = "setTime(" + parameterName + ", " + x + ")";
@@ -155,6 +161,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public Blob getBlob(int i) throws SQLException
   {
     String methodCall = "getBlob(" + i + ")";
@@ -169,6 +176,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Clob getClob(int i) throws SQLException
   {
     String methodCall = "getClob(" + i + ")";
@@ -183,6 +191,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Array getArray(int i) throws SQLException
   {
     String methodCall = "getArray(" + i + ")";
@@ -211,6 +220,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public double getDouble(int parameterIndex) throws SQLException
   {
     String methodCall = "getDouble(" + parameterIndex + ")";
@@ -225,6 +235,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public int getInt(int parameterIndex) throws SQLException
   {
     String methodCall = "getInt(" + parameterIndex + ")";
@@ -239,6 +250,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public boolean wasNull() throws SQLException
   {
     String methodCall = "wasNull()";
@@ -253,6 +265,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Time getTime(int parameterIndex) throws SQLException
   {
     String methodCall = "getTime(" + parameterIndex + ")";
@@ -267,6 +280,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Time getTime(int parameterIndex, Calendar cal) throws SQLException
   {
     String methodCall = "getTime(" + parameterIndex + ", " + cal + ")";
@@ -281,6 +295,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Timestamp getTimestamp(String parameterName) throws SQLException
   {
     String methodCall = "getTimestamp(" + parameterName + ")";
@@ -295,6 +310,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setTimestamp(String parameterName, Timestamp x) throws SQLException
   {
     String methodCall = "setTimestamp(" + parameterName + ", " + x + ")";
@@ -310,6 +326,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public String getString(int parameterIndex) throws SQLException
   {
     String methodCall = "getString(" + parameterIndex + ")";
@@ -324,6 +341,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void registerOutParameter(int parameterIndex, int sqlType) throws SQLException
   {
     String methodCall = "registerOutParameter(" + parameterIndex + ", " + sqlType + ")";
@@ -340,6 +358,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void registerOutParameter(int parameterIndex, int sqlType, int scale) throws SQLException
   {
     String methodCall = "registerOutParameter(" + parameterIndex + ", " + sqlType + ", " + scale + ")";
@@ -356,6 +375,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void registerOutParameter(int paramIndex, int sqlType, String typeName) throws SQLException
   {
     String methodCall = "registerOutParameter(" + paramIndex + ", " + sqlType + ", " + typeName + ")";
@@ -372,6 +392,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public byte getByte(String parameterName) throws SQLException
   {
     String methodCall = "getByte(" + parameterName + ")";
@@ -386,6 +407,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public double getDouble(String parameterName) throws SQLException
   {
     String methodCall = "getDouble(" + parameterName + ")";
@@ -414,6 +436,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public int getInt(String parameterName) throws SQLException
   {
     String methodCall = "getInt(" + parameterName + ")";
@@ -428,6 +451,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public long getLong(String parameterName) throws SQLException
   {
     String methodCall = "getLong(" + parameterName + ")";
@@ -442,6 +466,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public short getShort(String parameterName) throws SQLException
   {
     String methodCall = "getShort(" + parameterName + ")";
@@ -456,6 +481,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public boolean getBoolean(String parameterName) throws SQLException
   {
     String methodCall = "getBoolean(" + parameterName + ")";
@@ -470,6 +496,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public byte[] getBytes(String parameterName) throws SQLException
   {
     String methodCall = "getBytes(" + parameterName + ")";
@@ -484,6 +511,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setByte(String parameterName, byte x) throws SQLException
   {
     String methodCall = "setByte(" + parameterName + ", " + x + ")";
@@ -499,6 +527,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setDouble(String parameterName, double x) throws SQLException
   {
     String methodCall = "setDouble(" + parameterName + ", " + x + ")";
@@ -514,6 +543,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setFloat(String parameterName, float x) throws SQLException
   {
     String methodCall = "setFloat(" + parameterName + ", " + x + ")";
@@ -529,6 +559,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void registerOutParameter(String parameterName, int sqlType) throws SQLException
   {
     String methodCall = "registerOutParameter(" + parameterName + ", " + sqlType + ")";
@@ -544,6 +575,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setInt(String parameterName, int x) throws SQLException
   {
     String methodCall = "setInt(" + parameterName + ", " + x + ")";
@@ -559,6 +591,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNull(String parameterName, int sqlType) throws SQLException
   {
     String methodCall = "setNull(" + parameterName + ", " + sqlType + ")";
@@ -574,6 +607,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void registerOutParameter(String parameterName, int sqlType, int scale) throws SQLException
   {
     String methodCall = "registerOutParameter(" + parameterName + ", " + sqlType + ", " + scale + ")";
@@ -589,6 +623,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setLong(String parameterName, long x) throws SQLException
   {
     String methodCall = "setLong(" + parameterName + ", " + x + ")";
@@ -604,6 +639,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setShort(String parameterName, short x) throws SQLException
   {
     String methodCall = "setShort(" + parameterName + ", " + x + ")";
@@ -619,6 +655,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setBoolean(String parameterName, boolean x) throws SQLException
   {
     String methodCall = "setBoolean(" + parameterName + ", " + x + ")";
@@ -634,6 +671,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setBytes(String parameterName, byte[] x) throws SQLException
   {
     //todo: dump byte array?
@@ -650,6 +688,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public boolean getBoolean(int parameterIndex) throws SQLException
   {
     String methodCall = "getBoolean(" + parameterIndex + ")";
@@ -664,6 +703,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Timestamp getTimestamp(int parameterIndex) throws SQLException
   {
     String methodCall = "getTimestamp(" + parameterIndex + ")";
@@ -678,6 +718,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setAsciiStream(String parameterName, InputStream x, int length) throws SQLException
   {
     String methodCall = "setAsciiStream(" + parameterName + ", " + x + ", " + length + ")";
@@ -693,6 +734,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setBinaryStream(String parameterName, InputStream x, int length) throws SQLException
   {
     String methodCall = "setBinaryStream(" + parameterName + ", " + x + ", " + length + ")";
@@ -708,6 +750,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setCharacterStream(String parameterName, Reader reader, int length) throws SQLException
   {
     String methodCall = "setCharacterStream(" + parameterName + ", " + reader + ", " + length + ")";
@@ -723,6 +766,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public Object getObject(String parameterName) throws SQLException
   {
     String methodCall = "getObject(" + parameterName + ")";
@@ -737,6 +781,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setObject(String parameterName, Object x) throws SQLException
   {
     String methodCall = "setObject(" + parameterName + ", " + x + ")";
@@ -752,6 +797,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setObject(String parameterName, Object x, int targetSqlType) throws SQLException
   {
     String methodCall = "setObject(" + parameterName + ", " + x + ", " + targetSqlType + ")";
@@ -767,6 +813,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setObject(String parameterName, Object x, int targetSqlType, int scale) throws SQLException
   {
     String methodCall = "setObject(" + parameterName + ", " + x + ", " + targetSqlType + ", " + scale + ")";
@@ -782,6 +829,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public Timestamp getTimestamp(int parameterIndex, Calendar cal) throws SQLException
   {
     String methodCall = "getTimestamp(" + parameterIndex + ", " + cal + ")";
@@ -796,6 +844,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Date getDate(String parameterName, Calendar cal) throws SQLException
   {
     String methodCall = "getDate(" + parameterName + ", " + cal + ")";
@@ -810,6 +859,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Time getTime(String parameterName, Calendar cal) throws SQLException
   {
     String methodCall = "getTime(" + parameterName + ", " + cal + ")";
@@ -824,6 +874,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Timestamp getTimestamp(String parameterName, Calendar cal) throws SQLException
   {
     String methodCall = "getTimestamp(" + parameterName + ", " + cal + ")";
@@ -838,6 +889,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setDate(String parameterName, Date x, Calendar cal) throws SQLException
   {
     String methodCall = "setDate(" + parameterName + ", " + x + ", " + cal + ")";
@@ -853,6 +905,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setTime(String parameterName, Time x, Calendar cal) throws SQLException
   {
     String methodCall = "setTime(" + parameterName + ", " + x + ", " + cal + ")";
@@ -868,6 +921,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setTimestamp(String parameterName, Timestamp x, Calendar cal) throws SQLException
   {
     String methodCall = "setTimestamp(" + parameterName + ", " + x + ", " + cal + ")";
@@ -883,6 +937,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public short getShort(int parameterIndex) throws SQLException
   {
     String methodCall = "getShort(" + parameterIndex + ")";
@@ -897,6 +952,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public long getLong(int parameterIndex) throws SQLException
   {
     String methodCall = "getLong(" + parameterIndex + ")";
@@ -911,6 +967,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public float getFloat(int parameterIndex) throws SQLException
   {
     String methodCall = "getFloat(" + parameterIndex + ")";
@@ -925,6 +982,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Ref getRef(int i) throws SQLException
   {
     String methodCall = "getRef(" + i + ")";
@@ -942,6 +1000,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
   /**
    * @deprecated
    */
+  @Override
   public BigDecimal getBigDecimal(int parameterIndex, int scale) throws SQLException
   {
     String methodCall = "getBigDecimal(" + parameterIndex + ", " + scale + ")";
@@ -956,6 +1015,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public URL getURL(int parameterIndex) throws SQLException
   {
     String methodCall = "getURL(" + parameterIndex + ")";
@@ -971,6 +1031,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
 
   }
 
+  @Override
   public BigDecimal getBigDecimal(int parameterIndex) throws SQLException
   {
     String methodCall = "getBigDecimal(" + parameterIndex + ")";
@@ -985,6 +1046,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public byte getByte(int parameterIndex) throws SQLException
   {
     String methodCall = "getByte(" + parameterIndex + ")";
@@ -999,6 +1061,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Object getObject(int parameterIndex) throws SQLException
   {
     String methodCall = "getObject(" + parameterIndex + ")";
@@ -1013,6 +1076,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Object getObject(int i, Map map) throws SQLException
   {
     String methodCall = "getObject(" + i + ", " + map + ")";
@@ -1027,6 +1091,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public String getString(String parameterName) throws SQLException
   {
     String methodCall = "getString(" + parameterName + ")";
@@ -1041,6 +1106,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void registerOutParameter(String parameterName, int sqlType, String typeName) throws SQLException
   {
     String methodCall = "registerOutParameter(" + parameterName + ", " + sqlType + ", " + typeName + ")";
@@ -1056,6 +1122,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNull(String parameterName, int sqlType, String typeName) throws SQLException
   {
     String methodCall = "setNull(" + parameterName + ", " + sqlType + ", " + typeName + ")";
@@ -1071,6 +1138,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setString(String parameterName, String x) throws SQLException
   {
     String methodCall = "setString(" + parameterName + ", " + x + ")";
@@ -1087,6 +1155,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public BigDecimal getBigDecimal(String parameterName) throws SQLException
   {
     String methodCall = "getBigDecimal(" + parameterName + ")";
@@ -1101,6 +1170,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Object getObject(String parameterName, Map<String, Class<?>> map) throws SQLException {
     String methodCall = "getObject(" + parameterName + ", " + map + ")";
     try
@@ -1114,6 +1184,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setBigDecimal(String parameterName, BigDecimal x) throws SQLException
   {
     String methodCall = "setBigDecimal(" + parameterName + ", " + x + ")";
@@ -1129,6 +1200,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public URL getURL(String parameterName) throws SQLException
   {
     String methodCall = "getURL(" + parameterName + ")";
@@ -1143,6 +1215,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public RowId getRowId(int parameterIndex) throws SQLException {
     String methodCall = "getRowId(" + parameterIndex + ")";
     try
@@ -1156,6 +1229,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public RowId getRowId(String parameterName) throws SQLException {
     String methodCall = "getRowId(" + parameterName + ")";
     try
@@ -1169,6 +1243,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setRowId(String parameterName, RowId x) throws SQLException {
     String methodCall = "setRowId(" + parameterName + ", " + x + ")";
     try
@@ -1183,6 +1258,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNString(String parameterName, String value) throws SQLException {
     String methodCall = "setNString(" + parameterName + ", " + value + ")";
     try
@@ -1197,6 +1273,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNCharacterStream(String parameterName, Reader reader, long length) throws SQLException {
     String methodCall = "setNCharacterStream(" + parameterName + ", " + reader + ", " + length + ")";
     try
@@ -1211,6 +1288,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNClob(String parameterName, NClob value) throws SQLException {
     String methodCall = "setNClob(" + parameterName + ", " + value + ")";
     try
@@ -1225,6 +1303,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setClob(String parameterName, Reader reader, long length) throws SQLException {
     String methodCall = "setClob(" + parameterName + ", " + reader + ", " + length + ")";
     try
@@ -1239,6 +1318,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setBlob(String parameterName, InputStream inputStream, long length) throws SQLException {
     String methodCall = "setBlob(" + parameterName + ", " + inputStream + ", " + length + ")";
     try
@@ -1253,6 +1333,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNClob(String parameterName, Reader reader, long length) throws SQLException {
     String methodCall = "setNClob(" + parameterName + ", " + reader + ", " + length + ")";
     try
@@ -1267,6 +1348,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public NClob getNClob(int parameterIndex) throws SQLException {
     String methodCall = "getNClob(" + parameterIndex + ")";
     try
@@ -1280,6 +1362,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public NClob getNClob(String parameterName) throws SQLException {
     String methodCall = "getNClob(" + parameterName + ")";
     try
@@ -1293,6 +1376,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setSQLXML(String parameterName, SQLXML xmlObject) throws SQLException {
     String methodCall = "setSQLXML(" + parameterName + ", " + xmlObject + ")";
     try
@@ -1307,6 +1391,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public SQLXML getSQLXML(int parameterIndex) throws SQLException {
     String methodCall = "getSQLXML(" + parameterIndex + ")";
     try
@@ -1320,6 +1405,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public SQLXML getSQLXML(String parameterName) throws SQLException {
     String methodCall = "getSQLXML(" + parameterName + ")";
     try
@@ -1334,6 +1420,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
 
   }
 
+  @Override
   public String getNString(int parameterIndex) throws SQLException {
     String methodCall = "getNString(" + parameterIndex + ")";
     try
@@ -1347,6 +1434,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public String getNString(String parameterName) throws SQLException {
     String methodCall = "getNString(" + parameterName + ")";
     try
@@ -1360,6 +1448,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Reader getNCharacterStream(int parameterIndex) throws SQLException {
     String methodCall = "getNCharacterStream(" + parameterIndex + ")";
     try
@@ -1373,6 +1462,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Reader getNCharacterStream(String parameterName) throws SQLException {
     String methodCall = "getNCharacterStream(" + parameterName + ")";
     try
@@ -1386,6 +1476,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Reader getCharacterStream(int parameterIndex) throws SQLException {
     String methodCall = "getCharacterStream(" + parameterIndex + ")";
     try
@@ -1399,6 +1490,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Reader getCharacterStream(String parameterName) throws SQLException {
     String methodCall = "getCharacterStream(" + parameterName + ")";
     try
@@ -1412,6 +1504,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setBlob(String parameterName, Blob x) throws SQLException {
     String methodCall = "setBlob(" + parameterName + ", " + x + ")";
     try
@@ -1426,6 +1519,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setClob(String parameterName, Clob x) throws SQLException {
     String methodCall = "setClob(" + parameterName + ", " + x + ")";
     try
@@ -1440,6 +1534,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setAsciiStream(String parameterName, InputStream x, long length) throws SQLException {
     String methodCall = "setAsciiStream(" + parameterName + ", " + x + ", " + length + ")";
     try
@@ -1454,6 +1549,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setBinaryStream(String parameterName, InputStream x, long length) throws SQLException {
     String methodCall = "setBinaryStream(" + parameterName + ", " + x + ", " + length + ")";
     try
@@ -1468,6 +1564,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setCharacterStream(String parameterName, Reader reader, long length) throws SQLException {
     String methodCall = "setCharacterStream(" + parameterName + ", " + reader + ", " + length + ")";
     try
@@ -1482,6 +1579,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setAsciiStream(String parameterName, InputStream x) throws SQLException {
     String methodCall = "setAsciiStream(" + parameterName + ", " + x + ")";
     try
@@ -1496,6 +1594,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setBinaryStream(String parameterName, InputStream x) throws SQLException {
     String methodCall = "setBinaryStream(" + parameterName + ", " + x + ")";
     try
@@ -1510,6 +1609,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setCharacterStream(String parameterName, Reader reader) throws SQLException {
     String methodCall = "setCharacterStream(" + parameterName + ", " + reader + ")";
     try
@@ -1524,6 +1624,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNCharacterStream(String parameterName, Reader reader) throws SQLException {
     String methodCall = "setNCharacterStream(" + parameterName + ", " + reader + ")";
     try
@@ -1538,6 +1639,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setClob(String parameterName, Reader reader) throws SQLException {
     String methodCall = "setClob(" + parameterName + ", " + reader + ")";
     try
@@ -1552,6 +1654,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setBlob(String parameterName, InputStream inputStream) throws SQLException {
     String methodCall = "setBlob(" + parameterName + ", " + inputStream + ")";
     try
@@ -1566,6 +1669,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setNClob(String parameterName, Reader reader) throws SQLException {
     String methodCall = "setNClob(" + parameterName + ", " + reader + ")";
     try
@@ -1580,6 +1684,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public void setURL(String parameterName, URL val) throws SQLException
   {
     String methodCall = "setURL(" + parameterName + ", " + val + ")";
@@ -1595,6 +1700,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public Array getArray(String parameterName) throws SQLException
   {
     String methodCall = "getArray(" + parameterName + ")";
@@ -1609,6 +1715,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Blob getBlob(String parameterName) throws SQLException
   {
     String methodCall = "getBlob(" + parameterName + ")";
@@ -1623,6 +1730,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Clob getClob(String parameterName) throws SQLException
   {
     String methodCall = "getClob(" + parameterName + ")";
@@ -1637,6 +1745,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public Date getDate(String parameterName) throws SQLException
   {
     String methodCall = "getDate(" + parameterName + ")";
@@ -1651,6 +1760,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void setDate(String parameterName, Date x) throws SQLException
   {
     String methodCall = "setDate(" + parameterName + ", " + x + ")";
@@ -1666,6 +1776,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public <T> T unwrap(Class<T> iface) throws SQLException {
     String methodCall = "unwrap(" + (iface==null?"null":iface.getName()) + ")";
     try
@@ -1686,6 +1797,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public boolean isWrapperFor(Class<?> iface) throws SQLException
   {
     String methodCall = "isWrapperFor(" + (iface==null?"null":iface.getName()) + ")";
@@ -1704,6 +1816,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public <T> T getObject(int parameterIndex, Class<T> type) throws SQLException {
     String methodCall = "getObject(" + parameterIndex + ", " + type + ")";
     try {
@@ -1716,6 +1829,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
 
   }
 
+  @Override
   public <T> T getObject(String parameterName, Class<T> type) throws SQLException {
     String methodCall = "getNetworkTimeout(" + parameterName + ", " + type + ")";
     try {
@@ -1727,6 +1841,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  @Override
   public void closeOnCompletion() throws SQLException {
     String methodCall = "closeOnCompletion()";
     try {
@@ -1739,6 +1854,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     reportReturn(methodCall);
   }
 
+  @Override
   public boolean isCloseOnCompletion() throws SQLException {
     String methodCall = "isCloseOnCompletion()";
     try {

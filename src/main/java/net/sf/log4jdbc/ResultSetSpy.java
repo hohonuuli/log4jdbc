@@ -105,10 +105,10 @@ public class ResultSetSpy implements ResultSet, Spy {
     /**
      * Description for ResultSet class type.
      */
-    public static final String classTypeDescription = "ResultSet";
+    public static final String CLASS_TYPE_DESCRIPTION = "ResultSet";
 
     public String getClassType() {
-        return classTypeDescription;
+        return CLASS_TYPE_DESCRIPTION;
     }
 
     public Integer getConnectionNumber() {
