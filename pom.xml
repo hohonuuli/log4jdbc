@@ -8,7 +8,14 @@
   <packaging>jar</packaging>
 
   <name>log4jdbc</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/hohonuuli/log4jdbc</url>
+  
+  <scm>
+    <connection>scm:git@github.com:hohonuuli/log4jdbc.git</connection>
+    <developerConnection>scm:git:git@github.com:hohonuuli/log4jdbc.git</developerConnection>
+    <url>https://github.com/hohonuuli/log4jdbc</url>
+    <tag>HEAD</tag>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,6 +47,38 @@
     </dependency>
   </dependencies>
   
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  
   <build>
     <plugins>
       <plugin>
@@ -51,6 +90,34 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.4.1</version>
+          <configuration>
+            <useReleaseProfile>false</useReleaseProfile>
+            <releaseProfiles>release</releaseProfiles>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+          </configuration>
+        </plugin>
     </plugins>
   </build>
+  
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/hohonuuli/maven/log4jdbc</url>
+    </repository>
+  </distributionManagement>
 </project>

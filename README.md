@@ -1,11 +1,17 @@
 # log4jdbc
-A more extensive README will be created soon. For now, you can view the usage instructions at the old Google Code hosting site:
 
-https://code.google.com/p/log4jdbc/
+## NOTE
 
-You can download the prebuilt jars at:
+To Release: 
 
-https://code.google.com/p/log4jdbc/downloads/list
+1. Validate: `mvn -P release clean install`
+2. Go the the Bintray Web site and add a new version for the package.
+3. Execute the release process as follows: 
+    ```
+    mvn release:prepare
+    mvn release:perform
+    ```
+4. Go to the Bintray Web site and publish the new version.
 
 ## Features
 
