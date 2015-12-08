@@ -37,6 +37,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.Executor;
 
 /**
  * Wraps a JDBC Connection and reports method calls, returns and exceptions.
@@ -848,7 +849,7 @@ public class ConnectionSpy implements Connection, Spy
     String methodCall = "getTransactionIsolation()";
     try
     {
-      return reportReturn(methodCall, realConnection.getTransactionIsolation());
+      return (int) reportReturn(methodCall, realConnection.getTransactionIsolation());
     }
     catch (SQLException s)
     {
@@ -936,6 +937,68 @@ public class ConnectionSpy implements Connection, Spy
     {
       reportException(methodCall,s);
       throw s;
+    }
+  }
+
+  public void setSchema(String schema) throws SQLException {
+    String methodCall = "setSchema(" + schema + ")";
+    try
+    {
+      realConnection.setSchema(schema);
+    }
+    catch (SQLException s)
+    {
+      reportException(methodCall, s);
+      throw s;
+    }
+    reportReturn(methodCall);
+  }
+
+  public String getSchema() throws SQLException {
+
+      String methodCall = "getSchema()";
+      try
+      {
+        return (String) reportReturn(methodCall, realConnection.getSchema());
+      }
+      catch (SQLException s)
+      {
+        reportException(methodCall, s);
+        throw s;
+      }
+  }
+
+  public void abort(Executor executor) throws SQLException {
+    String methodCall = "abort(" + executor + ")";
+    try {
+      realConnection.abort(executor);
+    }
+    catch (SQLException e) {
+      reportException(methodCall, e);
+      throw e;
+    }
+    reportReturn(methodCall);
+  }
+
+  public void setNetworkTimeout(Executor executor, int milliseconds) throws SQLException {
+    String methodCall = "setNetworkTimeout(" + executor + ", " + milliseconds + ")";
+    try {
+      realConnection.setNetworkTimeout(executor, milliseconds);
+    }
+    catch (SQLException e) {
+      reportException(methodCall, e);
+      throw e;
+    }
+  }
+
+  public int getNetworkTimeout() throws SQLException {
+    String methodCall = "getNetworkTimeout()";
+    try {
+      return reportReturn(methodCall, realConnection.getNetworkTimeout());
+    }
+    catch (SQLException e) {
+      reportException(methodCall, e);
+      throw e;
     }
   }
 }

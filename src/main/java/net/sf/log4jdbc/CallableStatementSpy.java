@@ -1704,4 +1704,49 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
     }
   }
 
+  public <T> T getObject(int parameterIndex, Class<T> type) throws SQLException {
+    String methodCall = "getObject(" + parameterIndex + ", " + type + ")";
+    try {
+      return (T) reportReturn(methodCall, realCallableStatement.getObject(parameterIndex, type));
+    }
+    catch (SQLException e) {
+      reportException(methodCall, e);
+      throw e;
+    }
+
+  }
+
+  public <T> T getObject(String parameterName, Class<T> type) throws SQLException {
+    String methodCall = "getNetworkTimeout(" + parameterName + ", " + type + ")";
+    try {
+      return (T) reportReturn(methodCall, realCallableStatement.getObject(parameterName, type));
+    }
+    catch (SQLException e) {
+      reportException(methodCall, e);
+      throw e;
+    }
+  }
+
+  public void closeOnCompletion() throws SQLException {
+    String methodCall = "closeOnCompletion()";
+    try {
+      realCallableStatement.closeOnCompletion();
+    }
+    catch (SQLException e) {
+      reportException(methodCall, e);
+      throw e;
+    }
+    reportReturn(methodCall);
+  }
+
+  public boolean isCloseOnCompletion() throws SQLException {
+    String methodCall = "isCloseOnCompletion()";
+    try {
+      return reportReturn(methodCall, realCallableStatement.isCloseOnCompletion());
+    }
+    catch (SQLException e) {
+      reportException(methodCall, e);
+      throw e;
+    }
+  }
 }
