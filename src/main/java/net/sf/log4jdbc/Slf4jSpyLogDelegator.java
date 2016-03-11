@@ -316,7 +316,7 @@ public class Slf4jSpyLogDelegator implements SpyLogDelegator {
                     stringOutput));
 
             // first make one pass to gather the lines into a List
-            List<String> linesList = new ArrayList<>();
+            List<String> linesList = new ArrayList<String>();
             try {
                 while (true) {
                     String line = lineReader.readLine();
